@@ -1,0 +1,10 @@
+c:\users\gmejia\documents\visual studio 2013\Projects\AplicacionEjemplo\WcfDatos\bin\WcfDatos.dll.config
+c:\users\gmejia\documents\visual studio 2013\Projects\AplicacionEjemplo\WcfDatos\bin\WcfDatos.dll
+c:\users\gmejia\documents\visual studio 2013\Projects\AplicacionEjemplo\WcfDatos\bin\WcfDatos.pdb
+c:\users\gmejia\documents\visual studio 2013\Projects\AplicacionEjemplo\WcfDatos\bin\EntityFramework.dll
+c:\users\gmejia\documents\visual studio 2013\Projects\AplicacionEjemplo\WcfDatos\bin\EntityFramework.SqlServer.dll
+c:\users\gmejia\documents\visual studio 2013\Projects\AplicacionEjemplo\WcfDatos\bin\EntityFramework.xml
+c:\users\gmejia\documents\visual studio 2013\Projects\AplicacionEjemplo\WcfDatos\bin\EntityFramework.SqlServer.xml
+c:\users\gmejia\documents\visual studio 2013\Projects\AplicacionEjemplo\WcfDatos\obj\Debug\WcfDatos.csprojResolveAssemblyReference.cache
+c:\users\gmejia\documents\visual studio 2013\Projects\AplicacionEjemplo\WcfDatos\obj\Debug\WcfDatos.dll
+c:\users\gmejia\documents\visual studio 2013\Projects\AplicacionEjemplo\WcfDatos\obj\Debug\WcfDatos.pdb

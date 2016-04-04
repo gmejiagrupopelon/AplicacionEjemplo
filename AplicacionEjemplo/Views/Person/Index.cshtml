@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Personas";
+    WebGrid grid = new WebGrid(ViewBag.listPeople);
+}
+
+<h2>Lista de Personas</h2>
+@using (Html.BeginForm("search", "person"))
+{
+    <span>Cedula</span>
+    <input type="text" name="cedula" />
+    <input type="submit" value="Buscar" />
+}
+<br />
+@using (Html.BeginForm("cargar", "person"))
+{
+    <input type="submit" value="Cargar" />
+}
+<br />
+@if(ViewBag.listPeople != null)
+{
+    @grid.GetHtml(columns:new[]
+    {
+        grid.Column("Cedula","Cédula",canSort:true,style:"user"),
+        grid.Column("Nombre","Nombre",canSort:true,style:"user"),
+        grid.Column("Apellidos","Apellidos",canSort:true,style:"user"),
+        grid.Column("Telefono","Teléfono",canSort:true,style:"user"),
+        grid.Column("Direccion","Dirección",canSort:true,style:"user"),
+        grid.Column(header:"Acciones",format: (person) => Html.ActionLink("Editar","Edit",new {Cedula=person.cedula}))
+    }, tableStyle: "table table-bordered table-hover", headerStyle: "webGridHeader")   
+} 
+else
+{
+}
+
+<style>
+    .user {
+        width: 150px;
+        font-size: 12px;
+    }
+
+    .pass {
+        width: 100px;
+        font-weight: bold;
+    }
+
+    .webGridHeader {
+        background-color: black;
+        color: white
+    }
+
+</style>

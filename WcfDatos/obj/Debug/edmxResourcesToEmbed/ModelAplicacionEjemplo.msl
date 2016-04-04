@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BD_AplicacionEjemploModelStoreContainer" CdmEntityContainer="BD_AplicacionEjemploEntities">
+    <EntitySetMapping Name="V_Personas">
+      <EntityTypeMapping TypeName="BD_AplicacionEjemploModel.VPersonas">
+        <MappingFragment StoreEntitySet="V_Personas">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_Mantenimiento_Personas" FunctionName="BD_AplicacionEjemploModel.Store.SP_Mantenimiento_Personas" />
+  </EntityContainerMapping>
+</Mapping>

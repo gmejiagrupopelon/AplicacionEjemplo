@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_AplicacionEjemploModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\GMEJIA\DOCUMENTS\VISUAL STUDIO 2013\PROJECTS\APLICACIONEJEMPLO\WCFDATOS\APP_DATA\BD_APLICACIONEJEMPLO.MDF.dbo.V_Personas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_Personas">
+    <Key>
+      <PropertyRef Name="Cedula" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Apellidos" />
+    </Key>
+    <Property Name="Cedula" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="9" />
+    <Property Name="Direccion" Type="varchar" MaxLength="400" />
+  </EntityType>
+  <Function Name="SP_Mantenimiento_Personas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="p_accion" Type="char" Mode="In" />
+    <Parameter Name="p_cedula" Type="varchar" Mode="In" />
+    <Parameter Name="p_nombre" Type="varchar" Mode="In" />
+    <Parameter Name="p_apellidos" Type="varchar" Mode="In" />
+    <Parameter Name="p_telefono" Type="varchar" Mode="In" />
+    <Parameter Name="p_direccion" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="BD_AplicacionEjemploModelStoreContainer">
+    <EntitySet Name="V_Personas" EntityType="Self.V_Personas" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_Personas].[Cedula] AS [Cedula], 
+    [V_Personas].[Nombre] AS [Nombre], 
+    [V_Personas].[Apellidos] AS [Apellidos], 
+    [V_Personas].[Telefono] AS [Telefono], 
+    [V_Personas].[Direccion] AS [Direccion]
+    FROM [dbo].[V_Personas] AS [V_Personas]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

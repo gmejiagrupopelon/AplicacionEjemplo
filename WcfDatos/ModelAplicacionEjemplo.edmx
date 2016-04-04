@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BD_AplicacionEjemploModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\GMEJIA\DOCUMENTS\VISUAL STUDIO 2013\PROJECTS\APLICACIONEJEMPLO\WCFDATOS\APP_DATA\BD_APLICACIONEJEMPLO.MDF.dbo.V_Personas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Personas">
+          <Key>
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Apellidos" />
+          </Key>
+          <Property Name="Cedula" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="9" />
+          <Property Name="Direccion" Type="varchar" MaxLength="400" />
+        </EntityType>
+        <Function Name="SP_Mantenimiento_Personas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_accion" Type="char" Mode="In" />
+          <Parameter Name="p_cedula" Type="varchar" Mode="In" />
+          <Parameter Name="p_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="p_apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="p_telefono" Type="varchar" Mode="In" />
+          <Parameter Name="p_direccion" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="BD_AplicacionEjemploModelStoreContainer">
+          <EntitySet Name="V_Personas" EntityType="Self.V_Personas" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Personas].[Cedula] AS [Cedula], 
+    [V_Personas].[Nombre] AS [Nombre], 
+    [V_Personas].[Apellidos] AS [Apellidos], 
+    [V_Personas].[Telefono] AS [Telefono], 
+    [V_Personas].[Direccion] AS [Direccion]
+    FROM [dbo].[V_Personas] AS [V_Personas]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_AplicacionEjemploModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="VPersonas">
+          <Key>
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Apellidos" />
+          </Key>
+          <Property Name="Cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="BD_AplicacionEjemploEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="V_Personas" EntityType="BD_AplicacionEjemploModel.VPersonas" />
+          <FunctionImport Name="SP_Mantenimiento_Personas">
+            <Parameter Name="p_accion" Mode="In" Type="String" />
+            <Parameter Name="p_cedula" Mode="In" Type="String" />
+            <Parameter Name="p_nombre" Mode="In" Type="String" />
+            <Parameter Name="p_apellidos" Mode="In" Type="String" />
+            <Parameter Name="p_telefono" Mode="In" Type="String" />
+            <Parameter Name="p_direccion" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_Mantenimiento_Personas_Result">
+          <Property Type="String" Name="Column1" Nullable="false" MaxLength="28" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_AplicacionEjemploModelStoreContainer" CdmEntityContainer="BD_AplicacionEjemploEntities">
+          <EntitySetMapping Name="V_Personas">
+            <EntityTypeMapping TypeName="BD_AplicacionEjemploModel.VPersonas">
+              <MappingFragment StoreEntitySet="V_Personas">
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_Mantenimiento_Personas" FunctionName="BD_AplicacionEjemploModel.Store.SP_Mantenimiento_Personas" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
